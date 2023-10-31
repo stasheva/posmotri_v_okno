@@ -56,7 +56,6 @@ ol {
   align-items: end;
   gap: 30px;
   max-width: 1140px;
-  min-height: 534px ;
 }
 
 .result {
@@ -81,23 +80,27 @@ ol {
 }
 
 .search-form__label:focus {
-  border: 1px solid #FFF;
+  outline: none;
 }
 
 .search-form__textfield {
+  background-color: transparent;
   width: 225px;
   height: 27px;
   border-style: none;
   border-top: 1px solid #FFF;
   border-bottom: 1px solid #FFF;
-  color: rgba(255, 255, 255, 0.70);
-  font-family: "Fira Sans Condensed";
+  color: rgb(255, 255, 255);
+  font-family: inherit;
   font-weight: 400;
   font-size: 18px;
   font-style: normal;
   line-height: normal;
-  background-color: transparent;
   appearance: none;
+}
+
+.search-form__textfield:active {
+  outline: 1px solid #FFF;
 }
 
 .search-form__textfield:focus {
@@ -136,7 +139,15 @@ ol {
   background-color: #FFF;
 }
 
-.search-form__label:has(.search-form__checkbox):hover {
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #FFF;
+}
+
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -150,12 +161,16 @@ ol {
   min-height: 34px;
   border: 1px solid #FFF;
   color: #FFF;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: inherit;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
   background-color: transparent;
   cursor: pointer;
+}
+
+.button:focus {
+  outline: none;  
 }
 
 .button:hover {
@@ -164,6 +179,7 @@ ol {
 
 .button:active {
   background-color: #545050;
+  text-decoration: none;
 }
 
 .button:focus-visible {
@@ -183,7 +199,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 92%;
@@ -213,6 +229,7 @@ ol {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .content__card-link_current {
@@ -226,20 +243,6 @@ ol {
   padding: 2px 0;
 }
 
-.content__video-card:focus {
-  outline: none;
-}
-
-.content__video-card:has(:focus-visible) {
-  border-radius: 0;
-  outline: 1px solid #FFF;
-}
-
-.content__video-card:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .content__card-link {
   display: block;
   margin: 2px;
@@ -247,10 +250,29 @@ ol {
   text-decoration: none;
 }
 
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  border-radius: 0;
+  outline: 1px solid #FFF;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+  text-decoration: none;
+}
+
 .content__video-card-title {
   padding-bottom: 6px;
   overflow: hidden;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-weight: 700;
   font-size: 30px;
   line-height: 100%; /* 30px */
@@ -274,6 +296,7 @@ ol {
   width: 194px;
   height: 103px;
   object-fit: cover;
+  object-position: center;
 }
 
 .more-button {
