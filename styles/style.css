@@ -214,9 +214,12 @@ ol {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 25px;
   height: 298px;
   overflow: auto;
+}
+
+.content__list-item:not(:last-child) {
+  margin-bottom: 27px;
 }
 
 .result__video-container {
